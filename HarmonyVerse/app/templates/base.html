@@ -1,15 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>
             {% block title %}{% endblock title %}
         </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     </head>
 <body>
-    <a href="/"><h1>HarmonyVerse</h1></a>
-    <input type="text"  placeholder="Search artist" name="search">
-    <button type="submit"></button>
-  {% block content %}
-  {% endblock %}
+    <!-- Main horizontal Navigation bar-->
+    <nav>
+        <div class="navbar">
+            <a href="/"><h1><span id="harmony">Harmony</span><span id="verse">Verse</span></h1></a>
+            <form method="GET" action="/">
+                <div class="search">
+                    <input type="text"  placeholder="Search artist" name="search">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!--- Main content Portion -->
+<section class="main-div">
+    <!-- Main vertical Navigation bar-->
+    <div class="side-navbar">
+        <ul>
+        <li class="home"><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'home' %}">Artists</a></li>
+        <li><a href="{% url 'home' %}">Playlist</a></li>
+        <li><a href="{% url 'home' %}">Tracks</a></li>
+        <li><a href="{% url 'home' %}">About Us</a></li>
+        </ul>
+    </div>
+    
+    <div class="base-content">
+            {% block content %}
+            {% endblock content %}
+    </div>
+    </section>
 </body>
 </html>
