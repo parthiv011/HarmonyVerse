@@ -3,7 +3,7 @@
     padding:0;
     box-sizing:border-box;
     text-decoration:none;
-    color:black;
+    list-style:none;
 }
 body{
     font-family: 'Raleway', sans-serif;
@@ -15,19 +15,19 @@ body{
     align-items:center;
     justify-content:space-between;
     font-size:1.5rem;
-    background-color:lightgray;
+    background-color:#122543;
 }
 #harmony{
-    color:black;
+    color:white;
 }
 #verse{
-    color:darkgray;
+    color:#8CC4DF;
 }
 .search{
     display:flex;
     align-items:center;
     padding:10px 10px;
-    gap:1%;
+    gap:2%;
 }
 .search input{
     padding:2%;
@@ -36,49 +36,59 @@ body{
     font-size:1rem;
 }
 .search button{
-    font-size:1rem;
-    padding:2%;
+    background-color: #80b3cc;
+    color: white;
+    font-size:.9rem;
+    padding:2.5%;
     border:none;
     border-radius:8px;
 }
-.side-navbar{
-    display:flex;
-    flex:30%;
-    flex-direction:column;
-    position:fixed;
-    height:100%;
+.main-div .side-navbar{
+    width: 25%;
+    height: 100%;
+    background: lightgray;
+    position: fixed;
 }
-.side-navbar ul{
-    position:fixed;
-    list-style:none;
-    width:25%;
-    background-color:lightgray;
-    height:100%;
-}
-.side-navbar li{
-    padding:3% 3%;
-}
-.side-navbar li a{
-    padding:1.5%;
-    font-size:1.5rem;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+.main-div .side-navbar ul li{
+    font-size: 1.5rem;
+    padding: 15px 0;
 }
 .base-content{
     padding:2%;
     display:flex;
-    flex:70%;
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
-    width:-webkit-fill-available;
+    width:-100%;
+    margin-left: 25%;
 }
 .main-div{
     display:flex;
     flex-wrap:wrap;
 }
 .home{
-    background:black;
+    background:#122543;
 }.home a{
     color:white;
+}
+/* hover effects */
+.home:hover{
+    background:#1d3a68;
+    color: black;
+}
+.search button:hover{
+    cursor:pointer;
+    background-color: #47a3d2;
+    box-shadow: 0px 12px 16px 0 rgba(140, 196, 223,.24),0 17px 50px 0 rgba(140, 196, 223,.20);
+}
+.search input:hover{
+    background-color: white;
+    box-shadow: 0px 12px 16px 0 rgba(140, 196, 223,.24), 0 17px 50px 0 rgba(140, 196, 223,.20);
+}
+
+.side-navbar li:hover{
+    background:#8CC4DF;
+    color: white;
+}
+section{
+    display: flex;
 }

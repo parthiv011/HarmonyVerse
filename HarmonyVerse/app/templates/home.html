@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home{% endblock title %} 
+{% block styles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock styles %}
 
 {% block content %}
-<h2>Home</h2>
-<p>The Project is under development will be updated soon..!</p>
+    <div class="main-home">
+        <div class="new-releases">
+            <h2>New Releases</h2>
+            <p>The Project is under development will be updated soon..!</p>      
+        </div>
+
+        <div class="Featured">
+            <h2>Featured Playlists</h2>
+            <p>The Project is under development will be updated soon..!</p>        
+        </div>
+    </div>
 {% endblock content %}

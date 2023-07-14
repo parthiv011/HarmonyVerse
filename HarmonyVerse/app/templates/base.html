@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Rubik:wght@500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block styles %}{% endblock styles %}
     </head>
 <body>
     <!-- Main horizontal Navigation bar-->
@@ -30,16 +32,16 @@
     <div class="side-navbar">
         <ul>
         <li class="home"><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'home' %}">Artists</a></li>
-        <li><a href="{% url 'home' %}">Playlist</a></li>
-        <li><a href="{% url 'home' %}">Tracks</a></li>
-        <li><a href="{% url 'home' %}">About Us</a></li>
+        <li><a href="{% url 'artist' %}">Artists</a></li>
+        <li><a href="{% url 'playlist' %}">Playlist</a></li>
+        <li><a href="{% url 'album' %}">Tracks</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
         </ul>
     </div>
     
     <div class="base-content">
-            {% block content %}
-            {% endblock content %}
+            {% block content %}{% endblock content %}
+            {% block script %}{% endblock script %}
     </div>
     </section>
 </body>
