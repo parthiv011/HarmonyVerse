@@ -7,3 +7,28 @@ HarmonyVerse is a music app that harmonizes your world with the power of music. 
 
 # Getting started 
 To set up and run the Django project locally, follow these steps:
+
+## Installation
+
+Install Django with pip
+
+```bash
+  pip install django
+```
+
+After downloading Django
+
+Clone this repository using git command:
+```bash
+  git clone [url]
+```
+Open the directory where the repository is stored:
+```bash
+  cd dir
+```
+Once you are in the directory, run the following commands in terminal:
+```bash
+  cd HarmonyVerse
+  python manage.py runserver
+```
+Now the project is ready to run on your local device.
