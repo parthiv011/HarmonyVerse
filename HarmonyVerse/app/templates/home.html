@@ -5,16 +5,32 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 {% endblock styles %}
 
-{% block content %}
-    <div class="main-home">
-        <div class="new-releases">
-            <h2>New Releases</h2>
-            <p>The Project is under development will be updated soon..!</p>      
-        </div>
+{% block script %}{% endblock script %}
 
-        <div class="Featured">
-            <h2>Featured Playlists</h2>
-            <p>The Project is under development will be updated soon..!</p>        
+{% block content %}
+<h2>{{message}}</h2>
+    <div class="main-home">
+        <h2>New Releases</h2>
+        {% for d in new %}
+        <div class="new-releases">
+            <div class="card">
+                {% for s in d.images %}
+                    <a href="album/{{d.id}}">
+                    <img src="{{s.url}}" alt=""></a>
+                {% endfor %}
+                <h2>{{d.name}}</h2>
+                <a href="album/{{d.id}}"class="button">View Playlist</a>
+            </div>
+            {% endfor %}
+        </div>
+        <h2>Featured Playlists</h2>
+        <div class="featured">
+            <div class="card">
+                <a href="#Pritam">
+                <img src="{% static 'images/download.jpg'%}" alt=""></a>
+                <h2>Pritam</h2>
+                <a href=""class="button">View Playlist</a>
+            </div>        
         </div>
     </div>
 {% endblock content %}
