@@ -11,12 +11,14 @@
 <h2>{{message}}</h2>
     <div class="main-home">
         <h2>New Releases</h2>
-        {% for d in new %}
         <div class="new-releases">
+            {% for d in new %}
             <div class="card">
                 {% for s in d.images %}
+                    {% if s.width == 640 %}
                     <a href="album/{{d.id}}">
-                    <img src="{{s.url}}" alt=""></a>
+                    <img src="{{s.url}}" alt="image"></a>
+                    {% endif %}
                 {% endfor %}
                 <h2>{{d.name}}</h2>
                 <a href="album/{{d.id}}"class="button">View Playlist</a>
@@ -25,12 +27,16 @@
         </div>
         <h2>Featured Playlists</h2>
         <div class="featured">
+            {% for f in  featured%}
             <div class="card">
-                <a href="#Pritam">
-                <img src="{% static 'images/download.jpg'%}" alt=""></a>
-                <h2>Pritam</h2>
-                <a href=""class="button">View Playlist</a>
-            </div>        
+                {% for i in  f.images%}
+                <a href="playlist/{{f.id}}">
+                <img src="{{i.url}}" alt=""></a>
+                {% endfor %}
+                <h2>{{d.name}}</h2>
+                <a href="playlist/{{f.id}}"class="button">View Playlist</a>
+            </div> 
+            {% endfor %}       
         </div>
     </div>
 {% endblock content %}

@@ -3,12 +3,12 @@ import requests
 import json
 headers={
     'Content-Type':'application/json',
-    'Authorization': 'Bearer BQDSFdBQ7ReCvTGLF7PwgGeYC5Sxu5Er0AVWX2Cp_NW8sSmByNl5PhkpZG2Y3EgdVP0IhNkc1XgNx6W5CXyIKaAJHS-ay2Hwr5IcZXrx8WrLM68OZfc'
+    'Authorization': 'Bearer BQDYkJ4VzaUci5Nq1ll-1oiTOkGr9TOI0lV4A0c2RP0uvq-IgT8yTePLCXYTNePpeQkt2BmrdG3escZQ1cQ7dA84gAjbHs1h-hTL8gcmoA3RGRKSxHc'
 }
 # Create your views here.
 def home(request):
     new=requests.get("https://api.spotify.com/v1/browse/new-releases?limit=3", headers=headers)
-    featured=requests.get("https://api.spotify.com/v1/browse/featured-playlists?limit=3",headers=headers)
+    featured=requests.get("https://api.spotify.com/v1/browse/featured-playlists?limit=6",headers=headers)
     status_code=new.status_code
     new=new.json()
     featured=featured.json()
