@@ -10,7 +10,7 @@
 {% block content %}
 <h2>{{message}}</h2>
     <div class="main-home">
-        <h2>New Releases</h2>
+        <h1>New Releases</h1>
         <div class="new-releases">
             {% for d in new %}
             <div class="card">
@@ -20,12 +20,12 @@
                     <img src="{{s.url}}" alt="image"></a>
                     {% endif %}
                 {% endfor %}
-                <h2>{{d.name}}</h2>
+                <h4>{{d.name}}</h4>
                 <a href="album/{{d.id}}"class="button">View Playlist</a>
             </div>
             {% endfor %}
         </div>
-        <h2>Featured Playlists</h2>
+        <h1>Featured Playlists</h1>
         <div class="featured">
             {% for f in  featured%}
             <div class="card">
@@ -33,7 +33,7 @@
                 <a href="playlist/{{f.id}}">
                 <img src="{{i.url}}" alt=""></a>
                 {% endfor %}
-                <h2>{{d.name}}</h2>
+                <h4>{{f.name}}</h4>
                 <a href="playlist/{{f.id}}"class="button">View Playlist</a>
             </div> 
             {% endfor %}       

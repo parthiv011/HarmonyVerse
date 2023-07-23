@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}About{% endblock title %}
 {% load static%}
+{% block styles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock styles %}
 {% block script %}{% endblock script %}
 {% block content %}
-    <h2>About Us</h2>
-    <p>The Project is under development will be updated soon..!</p>
+<section class="abt">
+    <div class="about">
+        <a href="/"><p><span class="abt-H">Harmony</span><span class="abt-V">Verse</span></a>
+    </div>
+    <div class="abt-content">
+        <p>HarmonyVerse is a music app that harmonizes your world with the power of music. Seamlessly integrated with the Spotify API, HarmonyVerse opens up a universe of musical possibilities, allowing you to immerse yourself in a harmonious journey like never before.</p>
+        <div style="width:10%;height:50px;"></div>
+        <p>Let HarmonyVerse be your guide on a melodic exploration.Discover new genres, artists, and hidden musical gems that captivate your senses and broaden your sonic horizons.</p>
+    </div>
+</section>
+<div class="footer">
+    Connect with me : <a href="https://github.com/parthiv011/">Github</a>
+    <a href="https://www.linkedin.com/in/parthiv-parmar-7aa38b224/">Linked In</a>
+    <a href="https://twitter.com/Parthiv2111">Twitter</a>
+</div>
 {% endblock content %}

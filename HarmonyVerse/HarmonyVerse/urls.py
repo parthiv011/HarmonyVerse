@@ -20,10 +20,10 @@ from app import views
 
 urlpatterns = [
     path('', views.home,name="home"),
-    path('/audio', views.audio,name="audio"),
-    path('/artist', views.artist,name="artist"),
-    path('/playlist', views.playlist,name="playlist"),
-    path('/search', views.search,name="search"),
-    path('/album', views.album,name="album"),
-    path('/about', views.about,name="about"),
+    path('audio', views.audio,name="audio"),
+    path('artist', views.artist,name="artist"),
+    path('playlist/<str:id>', views.playlist,name="playlist"),
+    path('search', views.search,name="search"),
+    path('album/<str:id>', views.album,name="album"),
+    path('about', views.about,name="about"),
 ]

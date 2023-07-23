@@ -1,8 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}Playlist{% endblock title %}
 {% load static%}
-{% block script %}{% endblock script %}
+{% block script %}
+<script src="{% static 'js/playlist.js' %}"></script>
+{% endblock script %}
 {% block content %}
-    <h2>Playlist</h2>
-    <p>The Project is under development will be updated soon..!</p>
+    <h2>{{message}}</h2>
+    <div class="playlist" style="display:flex; flex-direction:column;">
+        {% for f in featured.images %}
+        <img src="{{f.url}}" alt="Image" style="height:300px; width:300px;">
+        {% endfor %}
+        <table>
+            <thead>
+                <tr>Title</tr>
+                <tr>Artist</tr>
+                <tr>Duration</tr>
+                <tr>Popularity</tr>
+                <tr>Preview</tr>
+            </thead>
+            <tbody>
+                {% for f in featured.tracks.items %}
+                <tr>
+                    <td>{{f.track.name}}</td>
+
+                    {% for s in f.track.artists %}
+                    <td><a src="/artist/{{s.id}}"></a>{{s.name}}
+                        {% endfor %}</td>
+                        
+                    <td>{{f.track.duration_ms}}</td>
+                    <td>{{f.track.popularity}}</td>
+                    <td>
+                        <audio controls>
+                          <source src="{{f.track.preview_url}}" type="audio/ogg">
+                          <source src="{{f.track.preview_url}}" type="audio/mpeg">
+                        Browser does not support the audio element.
+                        </audio></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}
