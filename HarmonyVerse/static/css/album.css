@@ -1,0 +1,21 @@
+.album {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+table {
+  width: 100%;
+  height: auto;
+}
+img {
+  height: 300px;
+  width: 300px;
+}
+thead {
+    background: #cccccc;
+    text-align: center;
+}
+td{
+    text-align: center;
+}

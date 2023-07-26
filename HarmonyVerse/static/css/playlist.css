@@ -1,0 +1,16 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+}
+img {
+  height: 300px;
+  width: 300px;
+}
+table{
+  width: 100%;
+}
+thead {
+  background: #cccccc;
+  width: 100%;
+  text-align: center;
+}

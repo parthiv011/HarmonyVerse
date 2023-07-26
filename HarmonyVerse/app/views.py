@@ -3,7 +3,7 @@ import requests
 import json
 headers={
     'Content-Type':'application/json',
-    'Authorization': 'Bearer BQDNSlUsHOcPgGMUw1erDt9dUgh7DfTT_JE7gr5dtN_xzelEfox4XSSWqZL6Mtwfs7P_fSrd9HPsi_SXZFNyEezNlqkBbYmVJWImRsa5huiyrnVQzMM'
+    'Authorization': 'Bearer BQCzkfeliTqn9Sp-pzOE_BSkPytppAe3RSfW9TpGdqfWKizKnYPB-VIUIVfFSCtT2W3O0ulUYnnBxl-ouRmZ3tozZRvhbn-EZSCFVOmh66HPFyjGQtY'
 }
 # Create your views here.
 def home(request):
@@ -21,8 +21,17 @@ def home(request):
     
 def audio(request):
     return render(request,'audio.html')
-def artist(request):
-    return render(request,'artist.html')
+
+
+def artist(request,id):
+    featured=requests.get(f'https://api.spotify.com/v1/artists/{id}/top-tracks?market=IN', headers=headers)
+    status_code=featured.status_code
+    featured=featured.json()
+    if status_code==200:
+        image=featured['tracks'][0]['album']['images'][0]['url']
+        return render(request,'artist.html',{"featured":featured['tracks'],"image":image})
+    else:
+        return render(request,'error.html',{"featured":featured,"message":featured['error']['message']})
 
 
 def playlist(request,id):
@@ -36,7 +45,14 @@ def playlist(request,id):
     
     
 def search(request):
-    return render(request,'searchartists.html')
+    symbol=request.GET.get("search")
+    featured=requests.get(f'https://api.spotify.com/v1/search?q={symbol}&type=artist', headers=headers)
+    status_code=featured.status_code
+    featured=featured.json()
+    if status_code==200:
+        return render(request,'searchartists.html',{"featured":featured['artists']['items']})
+    else:
+        return render(request,'error.html',{"message":featured['error']['message']})
 
 
 def album(request,id):

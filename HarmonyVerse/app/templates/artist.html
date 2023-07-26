@@ -3,6 +3,33 @@
 {% load static%}
 {% block script %}{% endblock script %}
 {% block content %}
-    <h2>Artist</h2>
-    <p>The Project is under development will be updated soon..!</p>
+    <h2>{{message}}</h2>
+    <div class="artist">
+        <img src="{{image}}" alt="Image" style="height:300px;width:300px;">
+        <table>
+            <thead>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Album</th>
+                <th>Popularity</th>
+                <th>Preview</th>
+            </thead>
+            <tbody>
+                {% for f in featured %}
+                <tr>
+                    <td>{{f.name}}</td>
+                    <td>{{f.album.release_date}}</td>
+                    <td>{{f.album.name}}</td>
+                    <td>{{f.popularity}}</td>
+            <td>
+                <audio controls>
+                  <source src="{{f.preview_url}}" type="audio/ogg">
+                  <source src="{{f.preview_url}}" type="audio/mpeg">
+                Browser does not support the audio element.
+                </audio></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}

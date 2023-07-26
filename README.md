@@ -26,9 +26,22 @@ Open the directory where the repository is stored:
 ```bash
   cd dir
 ```
-Once you are in the directory, run the following commands in terminal:
+Once you are in the directory, run the following command in terminal:
 ```bash
   cd HarmonyVerse
+```
+
+Before running the project on browser you should generate an authorizarion token from authToken.py file and add that access token in app/views.py in format headers={
+    'Content-Type':'application/json',
+    'Authorization': 'Bearer {TOKEN}'
+}.
+
+Now the project is ready to run on your local device.
+ 1. Open Terminal and run
+```bash
   python manage.py runserver
 ```
-Now the project is ready to run on your local device.
+ 2. Open a web browser of choice and go to http://localhost:8000/ . You
+should see the home page for our website!
+
+You can now start working on adding features or fixing bugs by making changes directly inside `HarmonyVerse`!!

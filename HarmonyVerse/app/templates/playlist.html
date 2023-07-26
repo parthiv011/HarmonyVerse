@@ -1,40 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}Playlist{% endblock title %}
 {% load static%}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/playlist.css' %}">
+{% endblock styles %}
 {% block script %}
 <script src="{% static 'js/playlist.js' %}"></script>
 {% endblock script %}
 {% block content %}
     <h2>{{message}}</h2>
-    <div class="playlist" style="display:flex; flex-direction:column;">
+    <div class="playlist">
         {% for f in featured.images %}
-        <img src="{{f.url}}" alt="Image" style="height:300px; width:300px;">
+        <img src="{{f.url}}" alt="Image">
         {% endfor %}
         <table>
             <thead>
-                <tr>Title</tr>
-                <tr>Artist</tr>
-                <tr>Duration</tr>
-                <tr>Popularity</tr>
-                <tr>Preview</tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Duration
+                    (In ms)</th>
+                <th>Popularity</th>
+                <th>Preview</th>
             </thead>
             <tbody>
                 {% for f in featured.tracks.items %}
                 <tr>
                     <td>{{f.track.name}}</td>
-
+                    <td>
                     {% for s in f.track.artists %}
-                    <td><a src="/artist/{{s.id}}"></a>{{s.name}}
-                        {% endfor %}</td>
-                        
+                    <a href="/artist/{{s.id}}">{{s.name}}</a><br>
+                    {% endfor %}</td>
+
                     <td>{{f.track.duration_ms}}</td>
                     <td>{{f.track.popularity}}</td>
-                    <td>
-                        <audio controls>
-                          <source src="{{f.track.preview_url}}" type="audio/ogg">
-                          <source src="{{f.track.preview_url}}" type="audio/mpeg">
-                        Browser does not support the audio element.
-                        </audio></td>
+            <td>
+                <audio controls>
+                  <source src="{{f.track.preview_url}}" type="audio/ogg">
+                  <source src="{{f.track.preview_url}}" type="audio/mpeg">
+                Browser does not support the audio element.
+                </audio></td>
                 </tr>
                 {% endfor %}
             </tbody>

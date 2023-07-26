@@ -1,0 +1,32 @@
+.search-view{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 3%;
+    width: 100%;
+}
+.search-result{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: rgba(221, 221, 221, 0.5);
+    border-radius: 14px;
+}
+.search-content{
+    padding: 16px;
+}
+.search-content a{
+    text-decoration: none;
+    color: black;
+}
+.search-result:hover{
+    transform: scale(1.03);
+    transition:.5s ease-in-out;
+    box-shadow: 3px 3px 5px 5px rgba(171, 170, 170, 0.7);
+    background-color: rgba(255, 240, 235,0.5);
+}
+img{
+    width: 100%;
+    height: 250px;
+    border-radius: 14px 14px 0 0;
+}

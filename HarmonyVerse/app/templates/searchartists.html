@@ -1,8 +1,27 @@
 {% extends 'base.html' %}
 {% block title %}Search Results{% endblock title %}
 {% load static%}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+{% endblock styles %}
 {% block script %}{% endblock script %}
 {% block content %}
-    <h2>Search Artists</h2><br>
-    <p>The Project is under development will be updated soon..!</p>
+    <h2>{{messga}}</h2><br>
+    <div class="search-view">
+        {% for f in featured %}
+        <div class="search-result">
+            {% for k in f.images %}
+                {% if k.width == 640 %}
+                <img src={{k.url}} alt="image">
+                {% endif %}
+            {% endfor %}
+            <div class="search-content">
+                <h5>{{f.name}}</h5>
+                <p>Followed by : {{f.followers.total}}</p>
+                <a href="/artist/{{f.id}}">Top Tracks</a>
+            </div>
+        </div>
+        {% comment %} <img src="{% static 'images/right-up.png' %}" style="height:auto;width:10%;"> {% endcomment %}
+        {% endfor %}
+    </div>
 {% endblock content %}

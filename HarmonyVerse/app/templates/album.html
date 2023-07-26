@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}Album{% endblock title %}
 {% load static%}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/album.css' %}">
+{% endblock styles %}
 {% block script %}{% endblock script %}
 {% block content %}
     <h2>{{message}}</h2>
-    <div class="album" style="display:flex; flex-direction:column;">
+    <div class="album">
         {% for d in  new.images%}
             {% if d.width == 640 %}
-                <img src="{{d.url}}" alt="Image" style="height:300px; width:300px;">
+                <img src="{{d.url}}" alt="Image">
             {% endif %}
         {% endfor %}
         <table>
             <thead>
-                <tr>Title</tr>
-                <tr>Duration</tr>
-                <tr>Preview</tr>
+                <th>Title</th>
+                <th>Duration
+                    (in ms)
+                </th>
+                <th>Preview</th>
             </thead>
             <tbody>
                 {% for d in new.tracks.items %}
-                
                 <tr>
                     <td>{{d.name}}</td>
                     <td>{{d.duration_ms}}</td>
