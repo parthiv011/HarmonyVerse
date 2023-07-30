@@ -28,15 +28,15 @@
                     <td>{{f.track.name}}</td>
                     <td>
                     {% for s in f.track.artists %}
-                    <a href="/artist/{{s.id}}">{{s.name}}</a><br>
+                    <a href="/artist/{{s.id}}" class="artist">{{s.name}}</a><br>
                     {% endfor %}</td>
 
                     <td>{{f.track.duration_ms}}</td>
                     <td>{{f.track.popularity}}</td>
             <td>
                 <audio controls>
-                  <source src="{{f.track.preview_url}}" type="audio/ogg">
-                  <source src="{{f.track.preview_url}}" type="audio/mpeg">
+                  <source src="{{f.track.preview_url}}" type="audio/ogg" style="z-index:1;">
+                  <source src="{{f.track.preview_url}}" type="audio/mpeg" style="z-index:1;">
                 Browser does not support the audio element.
                 </audio></td>
                 </tr>

@@ -14,3 +14,7 @@ thead {
   width: 100%;
   text-align: center;
 }
+.artist{
+  color:black;
+  text-decoration: underline;
+}

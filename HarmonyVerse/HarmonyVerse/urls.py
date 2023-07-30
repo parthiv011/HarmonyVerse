@@ -20,7 +20,7 @@ from app import views
 
 urlpatterns = [
     path('', views.home,name="home"),
-    path('audio', views.audio,name="audio"),
+    path('shows', views.show,name="shows"),
     path('artist/<str:id>', views.artist,name="artist"),
     path('playlist/<str:id>', views.playlist,name="playlist"),
     path('searchartists/', views.search,name="search"),

@@ -3,7 +3,7 @@ import requests
 import json
 headers={
     'Content-Type':'application/json',
-    'Authorization': 'Bearer BQCzkfeliTqn9Sp-pzOE_BSkPytppAe3RSfW9TpGdqfWKizKnYPB-VIUIVfFSCtT2W3O0ulUYnnBxl-ouRmZ3tozZRvhbn-EZSCFVOmh66HPFyjGQtY'
+    'Authorization': 'Bearer BQDsnyeGHnFklGKuZ8DEiswhT58UtV55Rnqu8IyeMtmYUlhBh0e6VyGxcjAkZtk56CfIPaM5gLKAPOnBSNI8vbthrG-deqff1a4cR_RxTkOCwzifYLw'
 }
 # Create your views here.
 def home(request):
@@ -19,8 +19,16 @@ def home(request):
     else:
         return render(request,'home.html',{"new":new,"message":new['error']['message']})
     
-def audio(request):
-    return render(request,'audio.html')
+def show(request):
+    shows=requests.get("https://api.spotify.com/v1/shows?market=IN&ids=5CfCWKI5pZ28U0uOzXkDHe%2C5as3aKmN2k11yfDDDSrvaZ",headers=headers)
+    print(shows)
+    status_code=shows.status_code
+    shows=shows.json()
+    if status_code==200:
+        shows=shows['shows']
+        return render(request,'shows.html',{"shows":shows})
+    else:
+        return render(request,'error.html',{"shows":shows,"message":shows['error']})
 
 
 def artist(request,id):
